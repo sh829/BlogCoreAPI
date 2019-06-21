@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+    <NoWarn>1701;1702;1591</NoWarn>
+    <DocumentationFile>../BlogCore/BlogCoreModel.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>

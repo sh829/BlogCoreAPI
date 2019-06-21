@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BlogCore</name>
+    </assembly>
+    <members>
+        <member name="M:BlogCore.Controllers.ValuesController.Get">
+            <summary>
+            get vluaes
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

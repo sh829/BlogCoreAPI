@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BlogCore.Model</name>
+    </assembly>
+    <members>
+        <member name="P:BlogCore.Model.Love.Id">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Love.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Love.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+    </members>
+</doc>

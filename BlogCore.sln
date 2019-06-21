@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCore", "BlogCore\BlogCore.csproj", "{406B8C04-B6C3-4078-ACE3-4395AAB15A8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCore.Model", "BlogCore.Model\BlogCore.Model.csproj", "{B53F5C0A-11E6-4713-956F-38778858DF15}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{406B8C04-B6C3-4078-ACE3-4395AAB15A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{406B8C04-B6C3-4078-ACE3-4395AAB15A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{406B8C04-B6C3-4078-ACE3-4395AAB15A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{406B8C04-B6C3-4078-ACE3-4395AAB15A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B53F5C0A-11E6-4713-956F-38778858DF15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B53F5C0A-11E6-4713-956F-38778858DF15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B53F5C0A-11E6-4713-956F-38778858DF15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B53F5C0A-11E6-4713-956F-38778858DF15}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D225B5D3-E428-4DCC-94F6-88640467A3AE}
+	EndGlobalSection
+EndGlobal
