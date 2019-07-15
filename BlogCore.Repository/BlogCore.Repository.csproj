@@ -5,9 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath></OutputPath>
-    <NoWarn>1701;1702;1591</NoWarn>
-    <DocumentationFile>../BlogCore/BlogCoreModel.xml</DocumentationFile>
+    <OutputPath>..\BlogCore\bin\Debug\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +14,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlogCore.Common\BlogCore.Common.csproj" />
+    <ProjectReference Include="..\BlogCore.Model\BlogCore.Model.csproj" />
+    <ProjectReference Include="..\IRepository\BlogCore.IRepository.csproj" />
   </ItemGroup>
 
 </Project>

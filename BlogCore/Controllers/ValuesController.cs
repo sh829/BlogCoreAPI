@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using BlogCore.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BlogCore.Controllers
@@ -14,12 +15,12 @@ namespace BlogCore.Controllers
         /// <returns></returns>
         // GET api/values
         [HttpGet]
+        [Authorize(Roles ="Admin")]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
         }
-
-        // GET api/values/5
+        // GET api/values/5 
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
