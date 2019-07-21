@@ -27,18 +27,19 @@ namespace BlogCore.Services
         /// 获取用户信息列表
         /// </summary>
         /// <returns></returns>
-        [Caching(AbsoluteExpiration = 10)]
-        public async Task<List<CustomInfoViewModel>> GetCustomInfos()
-        {
-            try
-            {
-                var customInfos = await dal.Query();
-                return _mapper.Map<List<CustomInfoViewModel>>(customInfos);
-            }catch (Exception ex)
-            {
-                return  new List<CustomInfoViewModel>();
-            }
+        //[Caching(AbsoluteExpiration = 10)]
+        //public async Task<List<CustomInfoViewModel>> GetCustomInfos()
+        //{
+        //    try
+        //    {
+        //        var customInfos = await dal.Query();
+        //        return _mapper.Map<List<CustomInfoViewModel>>(customInfos);
+        //    }catch (Exception ex)
+        //    {
+        //        return  new List<CustomInfoViewModel>();
+        //    }
 
-        }
+        //}
+        
     }
 }

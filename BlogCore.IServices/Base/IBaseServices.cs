@@ -9,7 +9,7 @@ namespace BlogCore.IServices.Base
 {
     public interface IBaseServices<TEntity> where TEntity:class
     {
-        Task<TEntity> QueryById(int objId);
+        Task<TEntity> QueryById(object objId);
         Task<TEntity> QueryById(int objId, bool blnUseCache = false);
         //Task<List<TEntity>> QueryByIDs(object[] lstIds);
 

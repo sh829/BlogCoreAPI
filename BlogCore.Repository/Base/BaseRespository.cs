@@ -23,7 +23,7 @@ namespace BlogCore.Repository.Base
             entityDb = context.GetEntityDB<TEntity>(db);
         }
 
-        public async Task<TEntity> QueryById(int id)
+        public async Task<TEntity> QueryById(object id)
         {
             return await db.Queryable<TEntity>().In(id).SingleAsync();
         }
@@ -179,7 +179,7 @@ namespace BlogCore.Repository.Base
         public async Task<PageModel<TEntity>> QueryPage(Expression<Func<TEntity, bool>> whereExpression, int intPageIndex = 1, int intPageSize = 20, string strOrderByFileds = null)
         {
             RefAsync<int> totalCount = 0;
-            var list= await db.Queryable<TEntity>().OrderByIF(!string.IsNullOrEmpty(strOrderByFileds), strOrderByFileds).WhereIF(whereExpression != null, whereExpression).ToPageListAsync(intPageIndex, intPageSize);
+            var list= await db.Queryable<TEntity>().OrderByIF(!string.IsNullOrEmpty(strOrderByFileds), strOrderByFileds).WhereIF(whereExpression != null, whereExpression).ToPageListAsync(intPageIndex, intPageSize,totalCount);
             int pageCount = Math.Ceiling(totalCount.ObjToDecimal() / intPageSize.ObjToDecimal()).ObjToInt();
             return new PageModel<TEntity>() { dateCount = totalCount, pageCount = pageCount, page = intPageIndex, pageSize = intPageSize, data = list };
         }

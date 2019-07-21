@@ -11,6 +11,6 @@ namespace BlogCore.IServices
 {
     public interface ICustomInfoServices:IBaseServices<CustomInfo>
     {
-        Task<List<CustomInfoViewModel>> GetCustomInfos();
+        //Task<List<CustomInfoViewModel>> GetCustomInfos();
     }
 }

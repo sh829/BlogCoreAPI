@@ -1,15 +1,14 @@
 ﻿using BlogCore.IServices.Base;
-using BlogCore.Model.Model;
+using BlogCore.Model.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace BlogCore.IServices
 {
-    public interface IPartyServices:IBaseServices<Party>
+    public partial interface IPasswordLibServices :IBaseServices<PasswordLib>
     {
-
-         Task<List<Party>> getParties();
     }
 }

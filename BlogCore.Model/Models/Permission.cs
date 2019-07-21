@@ -1,11 +1,16 @@
 ﻿using SqlSugar;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BlogCore.Model.Models
 {
-    public class Permission:RootEntity
+    /// <summary>
+    /// 路由菜单表
+    /// </summary>
+    public class Permission : RootEntity
     {
         public Permission()
         {
@@ -115,5 +120,4 @@ namespace BlogCore.Model.Models
         //public virtual ICollection<ModulePermission> ModulePermission { get; set; }
         //public virtual ICollection<RoleModulePermission> RoleModulePermission { get; set; }
     }
-
 }

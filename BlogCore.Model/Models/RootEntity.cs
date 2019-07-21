@@ -12,5 +12,7 @@ namespace BlogCore.Model.Models
         /// </summary>
         [SugarColumn(IsNullable = false, IsPrimaryKey = true, IsIdentity = true)]
         public int Id { get; set; }
+    
+    
     }
 }

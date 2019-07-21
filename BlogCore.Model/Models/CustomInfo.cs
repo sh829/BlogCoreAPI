@@ -20,7 +20,7 @@ namespace BlogCore.Model.Models
         /// <summary>
         /// 生日
         /// </summary>
-        public DateTime Birthday { get; set; }
+        public string Birthday { get; set; }
         /// <summary>
         /// 咨询日期
         /// </summary>
@@ -29,15 +29,15 @@ namespace BlogCore.Model.Models
         /// 预定日期
         /// </summary>
         public DateTime ScheduledDate { get; set; }
+
         /// <summary>
-        /// 预计人数
+        /// 状态
         /// </summary>
-        public int PredictNumber { get; set; }
+        public bool IsDelete { get; set; }
         /// <summary> 
         /// 修改时间
         /// </summary>
         public DateTime UpdateTime { get; set; }
-
         /// <summary>
         /// 创建时间
         /// </summary>
@@ -47,10 +47,12 @@ namespace BlogCore.Model.Models
         /// </summary>
         [SugarColumn(Length = 60, IsNullable = true)]
         public string CreatedBy { get; set; }
+        public int CreateById { get; set; }
         /// <summary>
         /// 修改人
         /// </summary>
         [SugarColumn(Length = 60, IsNullable = true)]
         public string UpdatedBy { get; set; }
+        public int UpdateById { get; set; }
     }
 }

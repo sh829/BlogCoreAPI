@@ -44,9 +44,9 @@
             预定日期
             </summary>
         </member>
-        <member name="P:BlogCore.Model.Models.CustomInfo.PredictNumber">
+        <member name="P:BlogCore.Model.Models.CustomInfo.IsDelete">
             <summary>
-            预计人数
+            状态
             </summary>
         </member>
         <member name="P:BlogCore.Model.Models.CustomInfo.UpdateTime">
@@ -67,6 +67,146 @@
         <member name="P:BlogCore.Model.Models.CustomInfo.UpdatedBy">
             <summary>
             修改人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.Category">
+            <summary>
+            种类
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.ParentId">
+            <summary>
+            父ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.IsDelete">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.UpdateTime">
+            <summary> 
+            修改时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.CreatedBy">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.Dictionary.UpdatedBy">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraOtherProject.Name">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraOtherProject.Code">
+            <summary>
+            项目编码
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraOtherProject.Cost">
+            <summary>
+            项目花费
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraOtherProject.IsDelete">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraOtherProject.UpdateTime">
+            <summary> 
+            修改时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraOtherProject.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraOtherProject.CreatedBy">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraOtherProject.UpdatedBy">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraProjectInfo.Name">
+            <summary>
+            项目名称
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraProjectInfo.Code">
+            <summary>
+            项目编码
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraProjectInfo.Cost">
+            <summary>
+            项目花费
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraProjectInfo.IsDelete">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraProjectInfo.UpdateTime">
+            <summary> 
+            修改时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraProjectInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraProjectInfo.CreatedBy">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraProjectInfo.UpdatedBy">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.MessageModel`1.success">
+            <summary>
+            操作是否成功
+            </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.Module">
+            <summary>
+            接口API地址信息表
             </summary>
         </member>
         <member name="P:BlogCore.Model.Models.Module.IsDeleted">
@@ -164,6 +304,346 @@
             修改时间
             </summary>
         </member>
+        <member name="T:BlogCore.Model.Models.ModulePermission">
+            <summary>
+            菜单与按钮关系表
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ModulePermission.IsDeleted">
+             <summary>
+            获取或设置是否禁用，逻辑上的删除，非物理删除
+             </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ModulePermission.ModuleId">
+            <summary>
+            菜单ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ModulePermission.PermissionId">
+            <summary>
+            按钮ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ModulePermission.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ModulePermission.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ModulePermission.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ModulePermission.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ModulePermission.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ModulePermission.ModifyTime">
+             <summary>
+            修改时间
+             </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.OperateLog">
+            <summary>
+            日志记录
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.OperateLog.IsDeleted">
+             <summary>
+            获取或设置是否禁用，逻辑上的删除，非物理删除
+             </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.OperateLog.Area">
+            <summary>
+            区域名
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.OperateLog.Controller">
+            <summary>
+            区域控制器名
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.OperateLog.Action">
+            <summary>
+            Action名称
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.OperateLog.IPAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.OperateLog.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.OperateLog.LogTime">
+            <summary>
+            登录时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.OperateLog.LoginName">
+            <summary>
+            登录名称
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.OperateLog.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.PartyAdvisoryInfo">
+            <summary>
+            派对咨询表
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.CustomInfo">
+            <summary>
+            顾客信息ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.Deposit">
+            <summary>
+            定金
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.DepositTime">
+            <summary>
+            交定金日期
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.PredictNumber">
+            <summary>
+            预计人数
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.Source">
+            <summary>
+            来源
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.FirstInfo">
+            <summary>
+            第一次跟进情况
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.SecondInfo">
+            <summary>
+            第二次跟进情况
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.ThirdInfo">
+            <summary>
+            第三次跟进情况
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.IsDelete">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.UpdateTime">
+            <summary> 
+            修改时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.CreatedBy">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyAdvisoryInfo.UpdatedBy">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.PartyBookInfo">
+            <summary>
+            派对预定信息表
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.PartyId">
+            <summary>
+            派对ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.ActualNumber">
+            <summary>
+            实到人数
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.TopicName">
+            <summary>
+            派对名
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.TopicCode">
+            <summary>
+            派对编码
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.TopicColor">
+            <summary>
+            派对色系
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.Price">
+            <summary>
+            派对套系
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.ExtraOtherCode">
+            <summary>
+            额外装饰/延时/人数
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.ExtraOtherName">
+            <summary>
+            额外装饰/延时/人数
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.ExtraProjectName">
+            <summary>
+            额外项目
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.ExtraProjectId">
+            <summary>
+            额外装饰Id
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.BuffetCost">
+            <summary>
+            自助餐花费
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.FoodCost">
+            <summary>
+            餐饮消费
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.TotalCost">
+            <summary>
+            总消费金额
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.IsDelete">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.UpdateTime">
+            <summary> 
+            修改时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.CreatedBy">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.UpdatedBy">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.PartyDemands">
+            <summary>
+            派对客户需求的物品
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.BookInfoId">
+            <summary>
+            派对信息表
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.ItemCode">
+            <summary>
+            物品种类编码
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.ItemName">
+            <summary>
+            物品信息名
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.Number">
+            <summary>
+            数量
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.Size">
+            <summary>
+            尺寸
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.IsDelete">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.UpdateTime">
+            <summary> 
+            修改时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.CreatedBy">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyDemands.UpdatedBy">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.PasswordLib">
+            <summary>
+            密码库表
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PasswordLib.IsDeleted">
+             <summary>
+            获取或设置是否禁用，逻辑上的删除，非物理删除
+             </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.Permission">
+            <summary>
+            路由菜单表
+            </summary>
+        </member>
         <member name="P:BlogCore.Model.Models.Permission.Code">
             <summary>
             菜单执行Action名
@@ -249,6 +729,11 @@
             获取或设置是否禁用，逻辑上的删除，非物理删除
              </summary>
         </member>
+        <member name="T:BlogCore.Model.Models.Role">
+            <summary>
+            角色表
+            </summary>
+        </member>
         <member name="P:BlogCore.Model.Models.Role.IsDeleted">
              <summary>
             获取或设置是否禁用，逻辑上的删除，非物理删除
@@ -304,6 +789,11 @@
             修改时间
             </summary>
         </member>
+        <member name="T:BlogCore.Model.Models.RoleModulePermission">
+            <summary>
+            按钮跟权限关联表
+            </summary>
+        </member>
         <member name="P:BlogCore.Model.Models.RoleModulePermission.IsDeleted">
              <summary>
             获取或设置是否禁用，逻辑上的删除，非物理删除
@@ -357,6 +847,126 @@
         <member name="P:BlogCore.Model.Models.RootEntity.Id">
             <summary>
             ID
+            </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.sysUserInfo">
+            <summary>
+            用户信息表
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uID">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uLoginName">
+            <summary>
+            登录账号
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uLoginPWD">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uRealName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uStatus">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uRemark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uCreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uUpdateTime">
+            <summary>
+            更新时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uLastErrTime">
+             <summary>
+            最后登录时间 
+             </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.uErrorCount">
+             <summary>
+            错误次数 
+             </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.sysUserInfo.name">
+            <summary>
+            登录账号
+            </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.Topic">
+            <summary>
+            Tibug 类别
+            </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.TopicDetail">
+            <summary>
+            Tibug 博文
+            </summary>
+        </member>
+        <member name="T:BlogCore.Model.Models.UserRole">
+            <summary>
+            用户跟角色关联表
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.UserRole.IsDeleted">
+             <summary>
+            获取或设置是否禁用，逻辑上的删除，非物理删除
+             </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.UserRole.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.UserRole.RoleId">
+            <summary>
+            角色ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.UserRole.CreateId">
+            <summary>
+            创建ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.UserRole.CreateBy">
+            <summary>
+            创建者
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.UserRole.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.UserRole.ModifyId">
+            <summary>
+            修改ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.UserRole.ModifyBy">
+            <summary>
+            修改者
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.UserRole.ModifyTime">
+            <summary>
+            修改时间
             </summary>
         </member>
         <member name="P:BlogCore.Model.PageModel`1.page">

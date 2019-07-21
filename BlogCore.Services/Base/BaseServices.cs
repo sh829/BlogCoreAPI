@@ -14,7 +14,7 @@ namespace BlogCore.Services.Base
         //通过在子类的构造函数中注入，这里是基类，不用构造函数
         public IBaseRespository<TEntity> baseDal;
 
-        public async Task<TEntity> QueryById(int objId)
+        public async Task<TEntity> QueryById(object objId)
         {
             return await baseDal.QueryById(objId);
         }

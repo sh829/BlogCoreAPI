@@ -33,26 +33,88 @@ namespace BlogCore.Controllers
         [HttpGet]
         [AllowAnonymous]
         [ResponseCache(Duration =600)]
-        public async Task<List<CustomInfoViewModel>> Get( int page=1,string key="")
+        public async Task<PageModel<CustomInfo>> Get( int page=1,string key="")
         {
-            List<CustomInfoViewModel> customInfos = new List<CustomInfoViewModel>();
+            if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))
+            {
+                key = "";
+            }
+            PageModel<CustomInfo> customInfos = new PageModel<CustomInfo>();
             try
             {
                 if (_redisCacheManager.Get<object>("Redis.CustomInfo") != null)
                 {
-                    customInfos = _redisCacheManager.Get<List<CustomInfoViewModel>>("Redis.CustomInfo");
+                    customInfos = _redisCacheManager.Get<PageModel<CustomInfo>>("Redis.CustomInfo");
                 }
                 else
                 {
-                    customInfos =await customInfoServices.GetCustomInfos();
+                    customInfos = await customInfoServices.QueryPage(a => a.IsDelete != true && (a.Name != "" && a.Name.Contains(key)), page);
                     _redisCacheManager.Set("Redis.CustomInfo", customInfos, TimeSpan.FromHours(2));
                 }
             }catch(Exception ex)
             {
-                customInfos = await customInfoServices.GetCustomInfos();
-
+                
             }
             return customInfos;
+        }
+        /// <summary>
+        /// 添加顾客信息 无权限
+        /// </summary>
+        /// <param name="custom"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<MessageModel<string>> Post([FromBody]CustomInfo custom)
+        {
+            var data = new MessageModel<string>();
+            custom.CreateTime = DateTime.Now;
+            custom.UpdateTime = DateTime.Now;
+            custom.IsDelete = false;
+            var id = await customInfoServices.Add(custom);
+            data.success = id > 0;
+            if (data.success)
+            {
+                data.response = id.ObjToString();
+                data.msg = "添加成功";
+            }
+            return data;
+        }
+        /// <summary>
+        /// 修改顾客信息
+        /// </summary>
+        /// <param name="custom"></param>
+        /// <returns></returns>
+        [HttpPut]
+        public async Task<MessageModel<string>> Put([FromBody] CustomInfo custom)
+        {
+            var data = new MessageModel<string>();
+            if (custom != null && custom.Id > 0)
+            {
+                data.success = await customInfoServices.Update(custom);
+                if (data.success)
+                {
+                    data.response = custom?.Id.ObjToString();
+                    data.msg = "修改成功";
+                }
+            }
+            return data;
+        }
+        [HttpDelete]
+        public async Task<MessageModel<string>> Delete(int id )
+        {
+            var data = new MessageModel<string>();
+            if (id > 0)
+            {
+                var custom = await customInfoServices.QueryById(id);
+                custom.IsDelete = true;
+                data.success =await customInfoServices.Update(custom);
+                if (data.success)
+                {
+                    data.response = custom?.Id.ObjToString();
+                    data.msg = "删除成功";
+                }
+            }
+            return data;
         }
     }
 }

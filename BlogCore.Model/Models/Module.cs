@@ -1,10 +1,15 @@
 ﻿using SqlSugar;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BlogCore.Model.Models
 {
+    /// <summary>
+    /// 接口API地址信息表
+    /// </summary>
     public class Module : RootEntity
     {
         public Module()

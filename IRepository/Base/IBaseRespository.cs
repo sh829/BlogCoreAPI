@@ -9,7 +9,7 @@ namespace BlogCore.IRepository.Base
 {
     public interface IBaseRespository<TEntity> where TEntity:class
     {
-        Task<TEntity> QueryById(int id);
+        Task<TEntity> QueryById(object id);
         Task<TEntity> QueryById(int id, bool blnUseCashe = true);
         Task<List<TEntity>> QueryByIds(object[] lstIds);
         Task<int> Add(TEntity model);

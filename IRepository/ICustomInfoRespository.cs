@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BlogCore.IRepository
 {
-    public interface ICustomInfoRespository:IBaseRespository<CustomInfo>
+    public interface IPartyAdvisoryInfoRepository : IBaseRespository<PartyAdvisoryInfo>
     {
     }
 }

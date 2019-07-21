@@ -1,11 +1,16 @@
 ﻿using SqlSugar;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace BlogCore.Model.Models
 {
-    public class Role: RootEntity
+    /// <summary>
+    /// 角色表
+    /// </summary>
+    public class Role : RootEntity
     {
         public Role()
         {
@@ -78,7 +83,6 @@ namespace BlogCore.Model.Models
         /// </summary>
         [SugarColumn(IsNullable = true)]
         public DateTime? ModifyTime { get; set; } = DateTime.Now;
-
 
 
     }

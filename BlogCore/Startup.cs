@@ -14,6 +14,7 @@ using BlogCore.AOP;
 using BlogCore.AuthHelper.Policys;
 using BlogCore.Common.GlobalVar;
 using BlogCore.Common.Helper;
+using BlogCore.Common.HttpContextUser;
 using BlogCore.Common.MemoryCache;
 using BlogCore.Common.Redis;
 using BlogCore.IServices;
@@ -23,6 +24,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -78,7 +80,7 @@ namespace BlogCore
                 //一般采用这种方法
                 c.AddPolicy("LimitRequest", policy =>
                 {
-                    policy.WithOrigins("http://127.0.0.1:1818", "http://127.0.0.1:1818", "http://127.0.0.1:8020")
+                    policy.WithOrigins("http://127.0.0.1:1818", "http://127.0.0.1:1818", "http://127.0.0.1:2364")
                     .AllowAnyMethod()
                     .AllowAnyHeader();
                 });
@@ -123,6 +125,13 @@ namespace BlogCore
                 #endregion
 
             });
+
+            #endregion
+            #region Httpcontext
+
+            // Httpcontext 注入
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IUser, AspNetUser>();
 
             #endregion
             #region Authorize 权限认证三步走

@@ -1,11 +1,12 @@
 ﻿using SqlSugar;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BlogCore.Model.Models
 {
-    public class RoleModulePermission:RootEntity
+    /// <summary>
+    /// 按钮跟权限关联表
+    /// </summary>
+    public class RoleModulePermission : RootEntity
     {
         public RoleModulePermission()
         {
