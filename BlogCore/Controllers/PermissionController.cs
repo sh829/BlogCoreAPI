@@ -127,7 +127,7 @@ namespace BlogCore.Controllers
             return new MessageModel<PageModel<Permission>>()
             {
                 msg = "获取成功",
-                success = permissions.dateCount >= 0,
+                success = permissions.dataCount >= 0,
                 response = permissions
             };
 

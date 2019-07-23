@@ -13,13 +13,41 @@ namespace BlogCore.Controllers
     /// <summary>
     /// 派对咨询信息
     /// </summary>
-    [Route("api/PartyAdvisoryInfo")]
+    [Route("api/[controller]/[action]")]
     public class PartyAdvisoryInfoController:Controller
     {
         private readonly IPartyAdvisoryInfoServices _partyAdvisoryInfoServices;
         public PartyAdvisoryInfoController(IPartyAdvisoryInfoServices partyAdvisoryInfoServices)
         {
             _partyAdvisoryInfoServices = partyAdvisoryInfoServices;
+        }
+        /// <summary>
+        /// 获取全部信息
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+
+        [HttpGet]
+        [ResponseCache(Duration = 3600)]
+        public async Task<MessageModel<PageModel<PartyAdvisoryInfo>>> Get(int page = 1, string key = "")
+        {
+            if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))
+            {
+                key = "";
+            }
+
+            int intPageSize = 50;
+
+            var data = await _partyAdvisoryInfoServices.QueryPage(a => a.IsDelete != true, page, intPageSize, " Id desc ");
+
+            return new MessageModel<PageModel<PartyAdvisoryInfo>>()
+            {
+                msg = "获取成功",
+                success = data.dataCount >= 0,
+                response = data
+            };
+
         }
         [HttpGet]
         public async Task<PartyAdvisoryInfo> Get(int id )

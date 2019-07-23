@@ -306,6 +306,14 @@
             派对咨询信息
             </summary>
         </member>
+        <member name="M:BlogCore.Controllers.PartyAdvisoryInfoController.Get(System.Int32,System.String)">
+            <summary>
+            获取全部信息
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="M:BlogCore.Controllers.PartyAdvisoryInfoController.Post(BlogCore.Model.Models.PartyAdvisoryInfo)">
             <summary>
             添加预定信息

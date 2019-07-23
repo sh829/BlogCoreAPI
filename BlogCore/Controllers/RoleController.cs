@@ -51,7 +51,7 @@ namespace BlogCore.Controllers
             return new MessageModel<PageModel<Role>>()
             {
                 msg = "获取成功",
-                success = data.dateCount >= 0,
+                success = data.dataCount >= 0,
                 response = data
             };
 

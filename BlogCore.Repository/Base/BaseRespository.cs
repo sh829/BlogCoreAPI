@@ -181,7 +181,7 @@ namespace BlogCore.Repository.Base
             RefAsync<int> totalCount = 0;
             var list= await db.Queryable<TEntity>().OrderByIF(!string.IsNullOrEmpty(strOrderByFileds), strOrderByFileds).WhereIF(whereExpression != null, whereExpression).ToPageListAsync(intPageIndex, intPageSize,totalCount);
             int pageCount = Math.Ceiling(totalCount.ObjToDecimal() / intPageSize.ObjToDecimal()).ObjToInt();
-            return new PageModel<TEntity>() { dateCount = totalCount, pageCount = pageCount, page = intPageIndex, pageSize = intPageSize, data = list };
+            return new PageModel<TEntity>() { dataCount = totalCount, pageCount = pageCount, page = intPageIndex, pageSize = intPageSize, data = list };
         }
     }
 }

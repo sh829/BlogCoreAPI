@@ -32,6 +32,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace BlogCore
@@ -54,7 +55,26 @@ namespace BlogCore
             //reids注入
             services.AddSingleton<IRedisCacheManager, RedisCacheManger>();
             #endregion
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            #region MVC + GlobalExceptions
+
+            //注入全局异常捕获
+            services.AddMvc(
+            //    o =>
+            //{
+            //    // 全局异常过滤
+            //    o.Filters.Add(typeof(GlobalExceptionsFilter));
+            //    // 全局路由权限公约
+            //    o.Conventions.Insert(0, new GlobalRouteAuthorizeConvention());
+            //    // 全局路由前缀，统一修改路由
+            //    o.Conventions.Insert(0, new GlobalRoutePrefixFilter(new RouteAttribute(RoutePrefix.Name)));
+            //}
+            )
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+            // 取消默认驼峰
+            .AddJsonOptions(options => { options.SerializerSettings.ContractResolver = new DefaultContractResolver(); });
+
+
+            #endregion
             var basePath = Microsoft.DotNet.PlatformAbstractions.ApplicationEnvironment.ApplicationBasePath;
             #region 初始化数据库
             services.AddScoped<BlogCore.Model.Seed.DbSeed>();

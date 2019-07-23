@@ -17,7 +17,7 @@ namespace BlogCore.Model
         /// <summary>
         /// 数据总数
         /// </summary>
-        public int dateCount { get; set; }
+        public int dataCount { get; set; }
         /// <summary>
         /// 每页大小
         /// </summary>

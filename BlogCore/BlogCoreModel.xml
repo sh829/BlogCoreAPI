@@ -979,7 +979,7 @@
             总页数
             </summary>
         </member>
-        <member name="P:BlogCore.Model.PageModel`1.dateCount">
+        <member name="P:BlogCore.Model.PageModel`1.dataCount">
             <summary>
             数据总数
             </summary>
