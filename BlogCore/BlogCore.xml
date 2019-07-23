@@ -306,19 +306,19 @@
             派对咨询信息
             </summary>
         </member>
-        <member name="M:BlogCore.Controllers.PartyAdvisoryInfoController.Get(System.Int32,System.String)">
+        <member name="M:BlogCore.Controllers.PartyAdvisoryInfoController.Get(System.Int32,System.Int32,System.String)">
             <summary>
-            获取全部信息
+            获取咨询信息
             </summary>
             <param name="page"></param>
             <param name="key"></param>
             <returns></returns>
         </member>
-        <member name="M:BlogCore.Controllers.PartyAdvisoryInfoController.Post(BlogCore.Model.Models.PartyAdvisoryInfo)">
+        <member name="M:BlogCore.Controllers.PartyAdvisoryInfoController.Post(BlogCore.Model.ViewModels.PartyAdvisoryViewModel)">
             <summary>
-            添加预定信息
+            添加咨询信息
             </summary>
-            <param name="advisoryInfo"></param>
+            <param name="infos"></param>
             <returns></returns>
         </member>
         <member name="T:BlogCore.Controllers.PartyBookInfoController">

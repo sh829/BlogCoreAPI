@@ -1137,5 +1137,80 @@
             <param name="config">config</param>
             <returns>返回值</returns>
         </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.CustomId">
+            <summary>
+            顾客ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.AdvisoryId">
+            <summary>
+            咨询信息ID
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.Name">
+            <summary>
+            顾客姓名
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.PhoneNumber">
+            <summary>
+            联系方式
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.AdvisoryTime">
+            <summary>
+            咨询日期
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.ScheduledDate">
+            <summary>
+            预计日期
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.PredictNumber">
+            <summary>
+            预计人数
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.Deposit">
+            <summary>
+            定金
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.DepositTime">
+            <summary>
+            交定金日期
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.Source">
+            <summary>
+            来源
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.FirstInfo">
+            <summary>
+            第一次跟进情况
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.SecondInfo">
+            <summary>
+            第二次跟进情况
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.ThirdInfo">
+            <summary>
+            第三次跟进情况
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.ViewModels.PartyAdvisoryViewModel.IsDelete">
+            <summary>
+            状态
+            </summary>
+        </member>
     </members>
 </doc>

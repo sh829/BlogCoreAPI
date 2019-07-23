@@ -338,3 +338,9 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/docker-compose.dcproj
+/docker-compose.override.yml
+/docker-compose.yml
+/.dockerignore
+/BlogCore/Dockerfile
+/BlogCore/Dockerfile.original

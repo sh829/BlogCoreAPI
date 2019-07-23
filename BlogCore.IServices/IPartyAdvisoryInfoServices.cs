@@ -11,5 +11,6 @@ namespace BlogCore.IServices
 {
     public interface IPartyAdvisoryInfoServices:IBaseServices<PartyAdvisoryInfo>
     {
+        //PageModel<PartyAdvisoryViewModel> QueryAdvisoryInfo(int page, string key);
     }
 }

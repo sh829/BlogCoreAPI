@@ -28,15 +28,15 @@ namespace BlogCore.Services
         /// </summary>
         /// <returns></returns>
         [Caching(AbsoluteExpiration = 10)]
-        public async Task<List<CustomInfoViewModel>> GetCustomInfos()
+        public async Task<List<PartyAdvisoryViewModel>> GetCustomInfos()
         {
             try
             {
                 var customInfos = await dal.Query();
-                return _mapper.Map<List<CustomInfoViewModel>>(customInfos);
+                return _mapper.Map<List<PartyAdvisoryViewModel>>(customInfos);
             }catch (Exception ex)
             {
-                return  new List<CustomInfoViewModel>();
+                return  new List<PartyAdvisoryViewModel>();
             }
 
         }
