@@ -12,6 +12,10 @@ namespace BlogCore.Model.Models
     public class PartyBookInfo : RootEntity
     {
         /// <summary>
+        /// 顾客信息ID
+        /// </summary>
+        public int CustomId { get; set; }
+        /// <summary>
         /// 派对ID
         /// </summary>
         public int PartyId { get; set; }

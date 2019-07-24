@@ -20,10 +20,10 @@ namespace BlogCore.Model.Models
         public string Code { get; set; }
 
         /// <summary>
-        /// 名称
+        /// 备注
         /// </summary>
         [SugarColumn(Length = 100, IsNullable = true)]
-        public string Name { get; set; }
+        public string Remark { get; set; }
         /// <summary>
         /// 值
         /// </summary>

@@ -13,7 +13,7 @@ namespace BlogCore.Controllers
     /// <summary>
     /// 派对咨询信息
     /// </summary>
-    [Route("api/PartyBookInfo")]
+    [Route("api/[controller]/[action]")]
     public class PartyBookInfoController:Controller
     {
         private readonly IPartyBookInfoServices _partyAdvisoryInfoServices;

@@ -209,6 +209,14 @@
             <param name="custom"></param>
             <returns></returns>
         </member>
+        <member name="M:BlogCore.Controllers.DictionaryController.Get(System.Int32,System.String)">
+            <summary>
+            获取参数字典
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="T:BlogCore.Controllers.ExtraOtherProjectController">
             <summary>
             预定表添加额外信息 额外布置 延时 套餐外加人
@@ -319,6 +327,20 @@
             添加咨询信息
             </summary>
             <param name="infos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BlogCore.Controllers.PartyAdvisoryInfoController.Put(BlogCore.Model.ViewModels.PartyAdvisoryViewModel)">
+            <summary>
+            修改咨询信息
+            </summary>
+            <param name="Infos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BlogCore.Controllers.PartyAdvisoryInfoController.Delete(System.Int32)">
+            <summary>
+            删除咨询信息
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:BlogCore.Controllers.PartyBookInfoController">

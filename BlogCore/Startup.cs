@@ -100,7 +100,7 @@ namespace BlogCore
                 //一般采用这种方法
                 c.AddPolicy("LimitRequest", policy =>
                 {
-                    policy.WithOrigins("http://127.0.0.1:1818", "http://127.0.0.1:1818", "http://127.0.0.1:2364")
+                    policy.WithOrigins("http://127.0.0.1:1818", "http://127.0.0.1:1818", "http://127.0.0.1:2364", "http://127.0.0.1:2365")
                     .AllowAnyMethod()
                     .AllowAnyHeader();
                 });

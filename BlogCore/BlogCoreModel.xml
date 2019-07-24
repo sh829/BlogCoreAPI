@@ -79,9 +79,9 @@
             编码
             </summary>
         </member>
-        <member name="P:BlogCore.Model.Models.Dictionary.Name">
+        <member name="P:BlogCore.Model.Models.Dictionary.Remark">
             <summary>
-            名称
+            备注
             </summary>
         </member>
         <member name="P:BlogCore.Model.Models.Dictionary.Value">
@@ -482,6 +482,11 @@
         <member name="T:BlogCore.Model.Models.PartyBookInfo">
             <summary>
             派对预定信息表
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.PartyBookInfo.CustomId">
+            <summary>
+            顾客信息ID
             </summary>
         </member>
         <member name="P:BlogCore.Model.Models.PartyBookInfo.PartyId">

@@ -84,28 +84,6 @@ namespace BlogCore.Controllers
             }
         }
 
-        //[HttpGet]
-        //[ResponseCache(Duration = 3600)]
-        //public async Task<MessageModel<PageModel<PartyAdvisoryInfo>>> Get(int page = 1, string key = "")
-        //{
-        //    if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))
-        //    {
-        //        key = "";
-        //    }
-
-        //    int intPageSize = 50;
-
-        //    var data = await _partyAdvisoryInfoServices.QueryPage(a => a.IsDelete != true, page, intPageSize, " Id desc ");
-
-        //    return new MessageModel<PageModel<PartyAdvisoryInfo>>()
-        //    {
-        //        msg = "获取成功",
-        //        success = data.dataCount >= 0,
-        //        response = data
-        //    };
-
-        //}
-
         /// <summary>
         /// 添加咨询信息
         /// </summary>
@@ -137,6 +115,11 @@ namespace BlogCore.Controllers
             }
             return data;
         }
+        /// <summary>
+        /// 修改咨询信息
+        /// </summary>
+        /// <param name="Infos"></param>
+        /// <returns></returns>
         [HttpPut]
         public async Task<MessageModel<string>> Put([FromBody] PartyAdvisoryViewModel Infos)
         {
@@ -168,13 +151,32 @@ namespace BlogCore.Controllers
             }
             
         }
+        /// <summary>
+        /// 删除咨询信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         public async Task<MessageModel<string>> Delete(int id)
         {
             var data = new MessageModel<string>();
+            var cResult = true;
+            var aResult = true;
             if (id > 0)
             {
-                data.success = await _partyAdvisoryInfoServices.DeleteById(id);
+                var advisoryInfo = await _partyAdvisoryInfoServices.QueryById(id);
+                if (advisoryInfo != null)
+                {
+                    var customInfo = await _customInfoServices.QueryById(advisoryInfo.CustomInfo);
+                    if (customInfo != null)
+                    {
+                        customInfo.IsDelete = true;
+                        cResult= await _customInfoServices.Update(customInfo);
+                    }
+                    advisoryInfo.IsDelete = true;
+                    aResult=await _partyAdvisoryInfoServices.Update(advisoryInfo);
+                }
+                data.success = cResult && aResult;
                 if (data.success)
                 {
                     data.msg = "删除成功";
