@@ -22,7 +22,7 @@ namespace BlogCore.Model.Models
         /// <summary>
         /// 实到人数
         /// </summary>
-        public int ActualNumber { get; set; }
+        public string ActualNumber { get; set; }
         /// <summary>
         /// 派对名
         /// </summary>
@@ -42,26 +42,7 @@ namespace BlogCore.Model.Models
         /// 派对套系
         /// </summary>
         public decimal Price { get; set; }
-        /// <summary>
-        /// 额外装饰/延时/人数
-        /// </summary>
-        [SugarColumn(Length = 100, IsNullable = true)]
-        public string ExtraOtherCode { get; set; }
-        /// <summary>
-        /// 额外装饰/延时/人数
-        /// </summary>
-        [SugarColumn(Length = 100, IsNullable = true)]
-        public string ExtraOtherName { get; set; }   
-        public int ExtracOtherId { get; set; }
-        /// <summary>
-        /// 额外项目
-        /// </summary>
-        [SugarColumn(Length = 100, IsNullable = true)]
-        public string ExtraProjectName { get; set; }
-        /// <summary>
-        /// 额外装饰Id
-        /// </summary>
-        public int ExtraProjectId { get; set; }
+      
         /// <summary>
         /// 自助餐花费
         /// </summary>

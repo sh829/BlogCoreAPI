@@ -8,6 +8,10 @@ namespace BlogCore.Model.Models
     public class ExtraOtherProject:RootEntity
     {
         /// <summary>
+        /// 预定信息表ID
+        /// </summary>
+        public int BookInfoId { get; set; }
+        /// <summary>
         /// 项目名称
         /// </summary>
         [SugarColumn(Length = 200, IsNullable = true)]

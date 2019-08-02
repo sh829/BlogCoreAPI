@@ -26,6 +26,9 @@ namespace BlogCore.AutoMapper
             CreateMap<PartyAdvisoryViewModel,PartyAdvisoryInfo>()
                 .ForMember(a => a.Id, opt => opt.MapFrom(s => s.AdvisoryId))
                 .ForMember(a=>a.CustomInfo,opt=>opt.MapFrom(s=>s.CustomId));
+            //预定信息map关系
+            CreateMap<PartyBookInfo, PartyBookInfoViewModel>();
+
         }
     }
 }

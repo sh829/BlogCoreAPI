@@ -119,6 +119,11 @@
             修改人
             </summary>
         </member>
+        <member name="P:BlogCore.Model.Models.ExtraOtherProject.BookInfoId">
+            <summary>
+            预定信息表ID
+            </summary>
+        </member>
         <member name="P:BlogCore.Model.Models.ExtraOtherProject.Name">
             <summary>
             项目名称
@@ -157,6 +162,11 @@
         <member name="P:BlogCore.Model.Models.ExtraOtherProject.UpdatedBy">
             <summary>
             修改人
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExtraProjectInfo.BookInfoId">
+            <summary>
+            预定信息表ID
             </summary>
         </member>
         <member name="P:BlogCore.Model.Models.ExtraProjectInfo.Name">
@@ -517,26 +527,6 @@
         <member name="P:BlogCore.Model.Models.PartyBookInfo.Price">
             <summary>
             派对套系
-            </summary>
-        </member>
-        <member name="P:BlogCore.Model.Models.PartyBookInfo.ExtraOtherCode">
-            <summary>
-            额外装饰/延时/人数
-            </summary>
-        </member>
-        <member name="P:BlogCore.Model.Models.PartyBookInfo.ExtraOtherName">
-            <summary>
-            额外装饰/延时/人数
-            </summary>
-        </member>
-        <member name="P:BlogCore.Model.Models.PartyBookInfo.ExtraProjectName">
-            <summary>
-            额外项目
-            </summary>
-        </member>
-        <member name="P:BlogCore.Model.Models.PartyBookInfo.ExtraProjectId">
-            <summary>
-            额外装饰Id
             </summary>
         </member>
         <member name="P:BlogCore.Model.Models.PartyBookInfo.BuffetCost">

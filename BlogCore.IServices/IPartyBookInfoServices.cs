@@ -11,5 +11,6 @@ namespace BlogCore.IServices
 {
     public interface IPartyBookInfoServices : IBaseServices<PartyBookInfo>
     {
+          Task<List<PartyBookInfoViewModel>> GetBookInfos(int page, int pageSize, string key);
     }
 }

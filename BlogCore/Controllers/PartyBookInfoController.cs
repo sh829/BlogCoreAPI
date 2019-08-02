@@ -2,6 +2,7 @@
 using BlogCore.IServices;
 using BlogCore.Model;
 using BlogCore.Model.Models;
+using BlogCore.Model.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,16 +17,30 @@ namespace BlogCore.Controllers
     [Route("api/[controller]/[action]")]
     public class PartyBookInfoController:Controller
     {
-        private readonly IPartyBookInfoServices _partyAdvisoryInfoServices;
-        public PartyBookInfoController(IPartyBookInfoServices partyAdvisoryInfoServices)
+        private readonly IPartyBookInfoServices _partyBookInfoServices;
+        public PartyBookInfoController(IPartyBookInfoServices partyBookInfoServices)
         {
-            _partyAdvisoryInfoServices = partyAdvisoryInfoServices;
+            _partyBookInfoServices = partyBookInfoServices;
         }
         [HttpGet]
-        public async Task<PartyBookInfo> Get(int id )
+        public async Task<MessageModel<PageModel<PartyBookInfoViewModel>>> Get(int page=1,int pageSize=20,string key="" )
         {
+            if (string.IsNullOrEmpty(key) || string.IsNullOrWhiteSpace(key))
+            {
+                key = "";
+            }
+            var bookInfos = await _partyBookInfoServices.GetBookInfos(page,pageSize,key);
+            PageModel<PartyBookInfoViewModel> bookInfoModel = new PageModel<PartyBookInfoViewModel> {
+                data = bookInfos,
+                dataCount = bookInfos.Count
+            };
 
-           return await _partyAdvisoryInfoServices.QueryById(id);
+            return new MessageModel<PageModel<PartyBookInfoViewModel>>
+            {
+                msg = "获取成功",
+                response = bookInfoModel,
+                success = true
+            };
         }
         /// <summary>
         /// 添加预定信息
@@ -38,7 +53,7 @@ namespace BlogCore.Controllers
             MessageModel<string> data = new MessageModel<string>();
             advisoryInfo.CreateTime = DateTime.Now;
             advisoryInfo.UpdateTime = DateTime.Now;
-            var id =await _partyAdvisoryInfoServices.Add(advisoryInfo);
+            var id =await _partyBookInfoServices.Add(advisoryInfo);
             data.success = id > 0;
             if (data.success)
             {
@@ -51,7 +66,7 @@ namespace BlogCore.Controllers
         public async Task<MessageModel<string>> Put(PartyBookInfo advisoryInfo)
         {
             var data = new MessageModel<string>();
-            data.success=await _partyAdvisoryInfoServices.Update(advisoryInfo);
+            data.success=await _partyBookInfoServices.Update(advisoryInfo);
             if (data.success)
             {
                 data.msg = "修改成功";
@@ -65,7 +80,7 @@ namespace BlogCore.Controllers
             var data = new MessageModel<string>();
             if (id > 0)
             {
-                data.success = await _partyAdvisoryInfoServices.DeleteById(id);
+                data.success = await _partyBookInfoServices.DeleteById(id);
                 if (data.success)
                 {
                     data.msg = "删除成功";
