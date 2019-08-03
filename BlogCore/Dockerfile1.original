@@ -1,0 +1,24 @@
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
+WORKDIR /src
+COPY ["BlogCore/BlogCore.csproj", "BlogCore/"]
+COPY ["BlogCore.Model/BlogCore.Model.csproj", "BlogCore.Model/"]
+COPY ["BlogCore.Common/BlogCore.Common.csproj", "BlogCore.Common/"]
+COPY ["BlogCore.IServices/BlogCore.IServices.csproj", "BlogCore.IServices/"]
+COPY ["IRepository/BlogCore.IRepository.csproj", "IRepository/"]
+RUN dotnet restore "BlogCore/BlogCore.csproj"
+COPY . .
+WORKDIR "/src/BlogCore"
+RUN dotnet build "BlogCore.csproj" -c Release -o /app
+
+FROM build AS publish
+RUN dotnet publish "BlogCore.csproj" -c Release -o /app
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "BlogCore.dll"]

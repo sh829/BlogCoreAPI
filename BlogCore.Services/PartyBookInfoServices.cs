@@ -50,7 +50,7 @@ namespace BlogCore.Services
                 foreach (var info in bookInfos)
                 {
                     var p1 = await _extraProjectInfo.Query(a => a.BookInfoId == info.BookInfoId);
-                    var p2 = await _extraOtherProject.Query();
+                    var p2 = await _extraOtherProject.Query(a => a.BookInfoId == info.BookInfoId);
                     info.ExtraProjectInfo = p1;
                     info.ExtraOtherProject = p2;
                     partyBooksList.Add(info);
