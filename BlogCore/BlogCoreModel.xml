@@ -209,6 +209,91 @@
             修改人
             </summary>
         </member>
+        <member name="T:BlogCore.Model.Models.GraduationStatistics">
+            <summary>
+            安全学院毕业生统计
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.Birthday">
+            <summary>
+            出生年月
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.StartYear">
+            <summary>
+            入学年份
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.Class">
+            <summary>
+            所在班级
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.Teacher">
+            <summary>
+            辅导员
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.Birthplace">
+            <summary>
+            籍贯
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.CurrentCity">
+            <summary>
+            当前所在城市
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.CompanyName">
+            <summary>
+            单位名称
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.Position">
+            <summary>
+            职务/职称
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.BusinessScope">
+            <summary>
+            业务范围
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.PhoneNumber">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.IsCelebration">
+            <summary>
+            是否参加校庆
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.IsDelete">
+            <summary>
+            删除标记
+            </summary>
+        </member>
         <member name="P:BlogCore.Model.Models.MessageModel`1.success">
             <summary>
             操作是否成功

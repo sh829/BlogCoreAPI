@@ -16,28 +16,29 @@ namespace BlogCore.Model.Seed
             try
             {
                 //codefirst创建数据库 ，如果是第二次执行，注释掉即可
-                //myContext.CreateTableByEntity(false,
+                myContext.CreateTableByEntity(false,
 
-                //    typeof(Module),
-                //    typeof(ModulePermission),
-                //    typeof(OperateLog),
-                //    typeof(PasswordLib),
-                //    typeof(Permission),
-                //    typeof(Role),
-                //    typeof(RoleModulePermission),
-                //    typeof(sysUserInfo),
-                //    typeof(UserRole),
-                //    typeof(Topic),
-                //    typeof(TopicDetail),
-                //    //以下是业务表
-                //    typeof(CustomInfo),
-                //    typeof(ExtraProjectInfo),
-                //    typeof(ExtraOtherProject),
-                //    typeof(Dictionary),
-                //    typeof(PartyAdvisoryInfo),
-                //    typeof(PartyBookInfo),
-                //    typeof(PartyDemands)
-                //    );
+                    //typeof(Module),
+                    //typeof(ModulePermission),
+                    //typeof(OperateLog),
+                    //typeof(PasswordLib),
+                    //typeof(Permission),
+                    //typeof(Role),
+                    //typeof(RoleModulePermission),
+                    //typeof(sysUserInfo),
+                    //typeof(UserRole),
+                    //typeof(Topic),
+                    //typeof(TopicDetail),
+                    ////以下是业务表
+                    //typeof(CustomInfo),
+                    //typeof(ExtraProjectInfo),
+                    //typeof(ExtraOtherProject),
+                    //typeof(Dictionary),
+                    //typeof(PartyAdvisoryInfo),
+                    //typeof(PartyBookInfo),
+                    //typeof(PartyDemands),
+                    typeof(GraduationStatistics)
+                    );
                 //下面就是种子数据
                 #region CustomInfo
                 if (!await myContext.Db.Queryable<CustomInfo>().AnyAsync())

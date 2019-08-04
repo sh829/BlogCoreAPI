@@ -241,6 +241,26 @@
             <param name="advisoryInfo"></param>
             <returns></returns>
         </member>
+        <member name="M:BlogCore.Controllers.GraduationStatisticsController.Get(System.Int32,System.String)">
+            <summary>
+            获取学生信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BlogCore.Controllers.GraduationStatisticsController.Post(BlogCore.Model.Models.GraduationStatistics)">
+            <summary>
+            添加顾客信息 无权限
+            </summary>
+            <param name="custom"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BlogCore.Controllers.GraduationStatisticsController.Put(BlogCore.Model.Models.GraduationStatistics)">
+            <summary>
+            修改顾客信息
+            </summary>
+            <param name="custom"></param>
+            <returns></returns>
+        </member>
         <member name="T:BlogCore.Controllers.ImgController">
             <summary>
             图片管理
