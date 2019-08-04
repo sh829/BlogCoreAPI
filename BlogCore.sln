@@ -9,13 +9,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogCore.Model", "BlogCore.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogCore.Common", "BlogCore.Common\BlogCore.Common.csproj", "{4E05B69E-5546-430C-AA86-0A1F8856187E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCore.IRepository", "IRepository\BlogCore.IRepository.csproj", "{DEEF0039-72CA-4007-858C-13678E54549E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogCore.IRepository", "IRepository\BlogCore.IRepository.csproj", "{DEEF0039-72CA-4007-858C-13678E54549E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCore.Repository", "BlogCore.Repository\BlogCore.Repository.csproj", "{4F2AB269-FEB5-4A79-A9F3-87A683F456DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogCore.Repository", "BlogCore.Repository\BlogCore.Repository.csproj", "{4F2AB269-FEB5-4A79-A9F3-87A683F456DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCore.IServices", "BlogCore.IServices\BlogCore.IServices.csproj", "{6CD0CDA2-09E1-400E-8D92-D8F6F0418CC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogCore.IServices", "BlogCore.IServices\BlogCore.IServices.csproj", "{6CD0CDA2-09E1-400E-8D92-D8F6F0418CC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogCore.Services", "BlogCore.Services\BlogCore.Services.csproj", "{CEB686E7-B726-407D-ACBE-55065CCA311F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogCore.Services", "BlogCore.Services\BlogCore.Services.csproj", "{CEB686E7-B726-407D-ACBE-55065CCA311F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{14912FFE-9E93-4CFA-B295-0F0C80AB02B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{CEB686E7-B726-407D-ACBE-55065CCA311F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEB686E7-B726-407D-ACBE-55065CCA311F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEB686E7-B726-407D-ACBE-55065CCA311F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14912FFE-9E93-4CFA-B295-0F0C80AB02B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14912FFE-9E93-4CFA-B295-0F0C80AB02B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14912FFE-9E93-4CFA-B295-0F0C80AB02B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14912FFE-9E93-4CFA-B295-0F0C80AB02B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
