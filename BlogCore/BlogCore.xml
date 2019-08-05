@@ -241,7 +241,7 @@
             <param name="advisoryInfo"></param>
             <returns></returns>
         </member>
-        <member name="M:BlogCore.Controllers.GraduationStatisticsController.Get(System.Int32,System.String)">
+        <member name="M:BlogCore.Controllers.GraduationStatisticsController.Get(System.Int32,System.Int32,System.String,System.String,System.String)">
             <summary>
             获取学生信息
             </summary>

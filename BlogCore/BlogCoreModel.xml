@@ -239,6 +239,11 @@
             所在班级
             </summary>
         </member>
+        <member name="P:BlogCore.Model.Models.GraduationStatistics.ClassName">
+            <summary>
+            班级名称
+            </summary>
+        </member>
         <member name="P:BlogCore.Model.Models.GraduationStatistics.Teacher">
             <summary>
             辅导员

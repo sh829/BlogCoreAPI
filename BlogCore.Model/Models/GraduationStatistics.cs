@@ -30,6 +30,10 @@ namespace BlogCore.Model.Models
         /// </summary>
         public string Class { get; set; }
         /// <summary>
+        /// 班级名称
+        /// </summary>
+        public string ClassName { get; set; }
+        /// <summary>
         /// 辅导员
         /// </summary>
         public string Teacher { get; set; }
