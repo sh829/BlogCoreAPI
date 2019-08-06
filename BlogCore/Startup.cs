@@ -272,43 +272,43 @@ namespace BlogCore
             bulid.RegisterType<BlogRedisCacheAOP>();
             bulid.RegisterType<BlogCacheAOP>();
             bulid.RegisterType<BlogLogAOP>();//可以直接替换其他拦截器
-            
+
             #region 1、服务程序集注入方式 —— 未解耦  =>没有接口层的服务层注入
             //整个程序集注入
             //注意 这个注入的是实现类层，不是接口层，不是IServices
-            //var assemblyServices = Assembly.Load("BlogCore.Services");
-            ////指定已扫描程序集中的类型注册为提供所有其实现类接口
-            //bulid.RegisterAssemblyTypes(assemblyServices).AsImplementedInterfaces();
-            //var assemblyRespository = Assembly.Load("BlogCore.Repository");
-            //bulid.RegisterAssemblyTypes(assemblyRespository).AsImplementedInterfaces();
+            var assemblyServices = Assembly.Load("BlogCore.Services");
+            //指定已扫描程序集中的类型注册为提供所有其实现类接口
+            bulid.RegisterAssemblyTypes(assemblyServices).AsImplementedInterfaces();
+            var assemblyRespository = Assembly.Load("BlogCore.Repository");
+            bulid.RegisterAssemblyTypes(assemblyRespository).AsImplementedInterfaces();
             #endregion
             #region 2、程序集注入 —— 实现层级解耦 =>带有接口层的服务注入
             //获取注入绝对路径
-            var serviceDllFile = Path.Combine(basePath, "BlogCore.Services.dll");
-            //直接采用加载文件的方法
-            var assemblyServices = Assembly.LoadFrom(serviceDllFile);
-            // AOP 开关，如果想要打开指定的功能，只需要在 appsettigns.json 对应对应 true 就行。
-            var cacheType = new List<Type>();
-            if (Appsettings.app(new string[] { "AppSettings", "MemoryCachingAOP", "Enabled" }).ObjToBool())
-            {
-                cacheType.Add(typeof(BlogCacheAOP));
-            }
-            if (Appsettings.app(new string[] { "AppSettings", "LogAOP", "Enabled" }).ObjToBool())
-            {
-                cacheType.Add(typeof(BlogLogAOP));
-            }
-            if(Appsettings.app(new string[] { "AppSettings", "RedisCaching", "Enabled" }).ObjToBool()){
-                cacheType.Add(typeof(BlogRedisCacheAOP));
-            }
-            bulid.RegisterAssemblyTypes(assemblyServices).
-                AsImplementedInterfaces()
-                .InstancePerLifetimeScope()
-                .EnableInterfaceInterceptors()//对目标类型启用接口拦截。拦截器将被确定，通过在类或接口上截取属性, 或添加 InterceptedBy ()
-                                              //.InterceptedBy(typeof(BlogLogAOP))
-                .InterceptedBy(cacheType.ToArray());//允许将拦截器服务的列表分配给注册。说人话就是，将拦截器添加到要注入容器的接口或者类之上。
-            var repositoryDllFile = Path.Combine(basePath, "BlogCore.Repository.dll");
-            var assemblysRepository = Assembly.LoadFrom(repositoryDllFile);
-            bulid.RegisterAssemblyTypes(assemblysRepository).AsImplementedInterfaces();
+            //var serviceDllFile = Path.Combine(basePath, "BlogCore.Services.dll");
+            ////直接采用加载文件的方法
+            //var assemblyServices = Assembly.LoadFrom(serviceDllFile);
+            //// AOP 开关，如果想要打开指定的功能，只需要在 appsettigns.json 对应对应 true 就行。
+            //var cacheType = new List<Type>();
+            //if (Appsettings.app(new string[] { "AppSettings", "MemoryCachingAOP", "Enabled" }).ObjToBool())
+            //{
+            //    cacheType.Add(typeof(BlogCacheAOP));
+            //}
+            //if (Appsettings.app(new string[] { "AppSettings", "LogAOP", "Enabled" }).ObjToBool())
+            //{
+            //    cacheType.Add(typeof(BlogLogAOP));
+            //}
+            //if(Appsettings.app(new string[] { "AppSettings", "RedisCaching", "Enabled" }).ObjToBool()){
+            //    cacheType.Add(typeof(BlogRedisCacheAOP));
+            //}
+            //bulid.RegisterAssemblyTypes(assemblyServices).
+            //    AsImplementedInterfaces()
+            //    .InstancePerLifetimeScope()
+            //    .EnableInterfaceInterceptors()//对目标类型启用接口拦截。拦截器将被确定，通过在类或接口上截取属性, 或添加 InterceptedBy ()
+            //                                  //.InterceptedBy(typeof(BlogLogAOP))
+            //    .InterceptedBy(cacheType.ToArray());//允许将拦截器服务的列表分配给注册。说人话就是，将拦截器添加到要注入容器的接口或者类之上。
+            //var repositoryDllFile = Path.Combine(basePath, "BlogCore.Repository.dll");
+            //var assemblysRepository = Assembly.LoadFrom(repositoryDllFile);
+            //bulid.RegisterAssemblyTypes(assemblysRepository).AsImplementedInterfaces();
             #endregion
             #region 3 没有接口的单独类 class注入
             #endregion
