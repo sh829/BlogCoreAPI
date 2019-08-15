@@ -16,7 +16,7 @@ namespace BlogCore.Model.Seed
             try
             {
                 //codefirst创建数据库 ，如果是第二次执行，注释掉即可
-                myContext.CreateTableByEntity(false,
+                //myContext.CreateTableByEntity(false,
 
                     //typeof(Module),
                     //typeof(ModulePermission),
@@ -37,8 +37,8 @@ namespace BlogCore.Model.Seed
                     //typeof(PartyAdvisoryInfo),
                     //typeof(PartyBookInfo),
                     //typeof(PartyDemands),
-                    typeof(GraduationStatistics)
-                    );
+                    //typeof(GraduationStatistics)
+                    //);
                 //下面就是种子数据
                 #region CustomInfo
                 if (!await myContext.Db.Queryable<CustomInfo>().AnyAsync())

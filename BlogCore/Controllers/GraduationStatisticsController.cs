@@ -1,14 +1,22 @@
 ﻿using BlogCore.Common.Helper;
+using BlogCore.Common.OfficeHelper;
 using BlogCore.Common.Redis;
 using BlogCore.IServices;
 using BlogCore.Model;
 using BlogCore.Model.Models;
 using BlogCore.Model.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BlogCore.Controllers
@@ -24,11 +32,16 @@ namespace BlogCore.Controllers
         private readonly IGraduationStatisticsServices graduationStatisticsServices;
         private readonly IDictionaryServices _dictionaryServices;
         private readonly IRedisCacheManager _redisCacheManager;
-        public GraduationStatisticsController(IGraduationStatisticsServices _graduationStatisticsServices, IDictionaryServices dictionaryServices, IRedisCacheManager redisCacheManager)
+        private IHostingEnvironment _hostingEnvironment;
+        public GraduationStatisticsController(IGraduationStatisticsServices _graduationStatisticsServices,
+            IDictionaryServices dictionaryServices, 
+            IRedisCacheManager redisCacheManager, 
+            IHostingEnvironment hostingEnvironment)
         {
             graduationStatisticsServices = _graduationStatisticsServices;
             _dictionaryServices = dictionaryServices;
             _redisCacheManager = redisCacheManager;
+            _hostingEnvironment = hostingEnvironment;
         }
         /// <summary>
         /// 获取学生信息
@@ -124,6 +137,29 @@ namespace BlogCore.Controllers
                 }
             }
             return data;
+        }
+       
+        [HttpPost]
+        public IActionResult Import(IFormFile files)
+        {
+            var stream = files.OpenReadStream();
+            string sWebRootFolder = _hostingEnvironment.ContentRootPath;
+            var data1 = OfficeHelper.ReadStreamToDataTable(stream);
+            string sFileName = $"{Guid.NewGuid()}.xlsx";
+            FileInfo file = new FileInfo(Path.Combine(sWebRootFolder, sFileName));
+            try
+            {
+                using (FileStream fs = new FileStream(file.ToString(), FileMode.Create))
+                {
+                   var data= OfficeHelper.ReadStreamToDataTable(stream);
+                    return Content("");
+                }
+              
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
         }
     }
 }

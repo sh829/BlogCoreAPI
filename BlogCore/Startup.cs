@@ -24,6 +24,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -54,6 +55,7 @@ namespace BlogCore
             services.AddScoped<ICahing, MemoryCaching>();
             //reids注入
             services.AddSingleton<IRedisCacheManager, RedisCacheManger>();
+            //通过注入 IHostingEnvironment 服务对象来取得Web根目录和内容根目录的物理路径
             #endregion
             #region MVC + GlobalExceptions
 
@@ -89,18 +91,18 @@ namespace BlogCore
             services.AddCors(c =>
             {
                 //↓↓↓↓↓↓↓注意正式环境不要使用这种全开放的处理↓↓↓↓↓↓↓↓↓↓
-                c.AddPolicy("AllRequest", policy =>
-                {
-                    policy.AllowAnyOrigin()//允许任何源
-                    .AllowAnyMethod()//允许任何方法
-                    .AllowAnyHeader()//允许任何请求头
-                    .AllowCredentials();//允许cookie
-                });
+                //c.AddPolicy("AllRequest", policy =>
+                //{
+                //    policy.AllowAnyOrigin()//允许任何源
+                //    .AllowAnyMethod()//允许任何方法
+                //    .AllowAnyHeader()//允许任何请求头
+                //    .AllowCredentials();//允许cookie
+                //});
                 //↓↓↓↓↓↓↓注意正式环境不要使用这种全开放的处理↓↓↓↓↓↓↓↓↓↓
                 //一般采用这种方法
                 c.AddPolicy("LimitRequest", policy =>
                 {
-                    policy.WithOrigins("http://127.0.0.1:1818", "http://127.0.0.1:1818", "http://127.0.0.1:2364", "http://127.0.0.1:2365")
+                    policy.WithOrigins("http://127.0.0.1:1818", "http://127.0.0.1:5000", "http://127.0.0.1:2364", "http://127.0.0.1:2365", "http://47.105.159.142:8082")
                     .AllowAnyMethod()
                     .AllowAnyHeader();
                 });
@@ -353,7 +355,7 @@ namespace BlogCore
             //跨域第二 种版本，请要ConfigureService中配置服务 services.AddCors();
             //app.UseCors(options => options.WithOrigins("http://localhost:8021").AllowAnyHeader().AllowAnyMethod());
             #endregion
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
