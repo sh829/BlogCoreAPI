@@ -9,6 +9,9 @@
     <DocumentationFile>../BlogCore/BlogCore.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
+  <PropertyGroup>
+    　　<GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
@@ -24,6 +27,8 @@
     <ProjectReference Include="..\BlogCore.Common\BlogCore.Common.csproj" />
     <ProjectReference Include="..\BlogCore.IServices\BlogCore.IServices.csproj" />
     <ProjectReference Include="..\BlogCore.Model\BlogCore.Model.csproj" />
+    <ProjectReference Include="..\BlogCore.Repository\BlogCore.Repository.csproj" />
+    <ProjectReference Include="..\BlogCore.Services\BlogCore.Services.csproj" />
     <ProjectReference Include="..\IRepository\BlogCore.IRepository.csproj" />
   </ItemGroup>
 
