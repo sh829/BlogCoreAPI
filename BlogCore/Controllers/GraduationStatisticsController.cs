@@ -1,9 +1,11 @@
-﻿using BlogCore.Common.Helper;
+﻿using BlogCore.Common.DB;
+using BlogCore.Common.Helper;
 using BlogCore.Common.OfficeHelper;
 using BlogCore.Common.Redis;
 using BlogCore.IServices;
 using BlogCore.Model;
 using BlogCore.Model.Models;
+using BlogCore.Model.Seed;
 using BlogCore.Model.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +16,7 @@ using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -143,17 +146,24 @@ namespace BlogCore.Controllers
         public IActionResult Import(IFormFile files)
         {
             var stream = files.OpenReadStream();
-            string sWebRootFolder = _hostingEnvironment.ContentRootPath;
-            var data1 = OfficeHelper.ReadStreamToDataTable(stream);
-            string sFileName = $"{Guid.NewGuid()}.xlsx";
-            FileInfo file = new FileInfo(Path.Combine(sWebRootFolder, sFileName));
+           
+            var data = OfficeHelper.ReadStreamToDataTable(stream);
+            var culum = data.Columns;
+            foreach (DataRow row in data.Rows)
+            {
+                object[] d=row.ItemArray;
+                var info = new GraduationStatistics
+                {
+                    Name = d[0]?.ToString(),
+
+                };
+            }
+           
             try
             {
-                using (FileStream fs = new FileStream(file.ToString(), FileMode.Create))
-                {
-                   var data= OfficeHelper.ReadStreamToDataTable(stream);
-                    return Content("");
-                }
+                
+                   return Content("");
+               
               
             }
             catch (Exception ex)
