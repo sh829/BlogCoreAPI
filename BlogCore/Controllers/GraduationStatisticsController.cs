@@ -1,6 +1,6 @@
 ﻿using BlogCore.Common.DB;
 using BlogCore.Common.Helper;
-using BlogCore.Common.OfficeHelper;
+using BlogCore.Common.ImportHelper;
 using BlogCore.Common.Redis;
 using BlogCore.IServices;
 using BlogCore.Model;
@@ -35,15 +35,18 @@ namespace BlogCore.Controllers
         private readonly IGraduationStatisticsServices graduationStatisticsServices;
         private readonly IDictionaryServices _dictionaryServices;
         private readonly IRedisCacheManager _redisCacheManager;
+        readonly IExcelMapToModelServices _excelMap;
         private IHostingEnvironment _hostingEnvironment;
         public GraduationStatisticsController(IGraduationStatisticsServices _graduationStatisticsServices,
-            IDictionaryServices dictionaryServices, 
-            IRedisCacheManager redisCacheManager, 
+            IDictionaryServices dictionaryServices,
+            IRedisCacheManager redisCacheManager,
+            IExcelMapToModelServices excelMap,
             IHostingEnvironment hostingEnvironment)
         {
             graduationStatisticsServices = _graduationStatisticsServices;
             _dictionaryServices = dictionaryServices;
             _redisCacheManager = redisCacheManager;
+            _excelMap = excelMap;
             _hostingEnvironment = hostingEnvironment;
         }
         /// <summary>
@@ -51,7 +54,7 @@ namespace BlogCore.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<MessageModel<PageModel<GraduationStatistics>>> Get(int page = 1, int pageSize = 20, string Name = "",string Class="",string CurrentCity="")
+        public async Task<MessageModel<PageModel<GraduationStatistics>>> Get(int page = 1, int pageSize = 20, string Name = "", string Class = "", string CurrentCity = "")
         {
             if (string.IsNullOrEmpty(Name) || string.IsNullOrWhiteSpace(Name))
             {
@@ -68,7 +71,7 @@ namespace BlogCore.Controllers
             PageModel<GraduationStatistics> customInfos = new PageModel<GraduationStatistics>();
             try
             {
-                customInfos = await graduationStatisticsServices.QueryPage(a => a.IsDelete != true && (a.Name != "" && a.Name.Contains(Name)&&(a.CurrentCity!=""&&a.CurrentCity.Contains(CurrentCity))&&((Class!=""&&a.Class==Class)||Class=="")), page);
+                customInfos = await graduationStatisticsServices.QueryPage(a => a.IsDelete != true && (a.Name != "" && a.Name.Contains(Name) && (a.CurrentCity != "" && a.CurrentCity.Contains(CurrentCity)) && ((Class != "" && a.Class == Class) || Class == "")), page);
                 return new MessageModel<PageModel<GraduationStatistics>>
                 {
                     msg = "获取成功",
@@ -93,7 +96,7 @@ namespace BlogCore.Controllers
             var data = new MessageModel<string>();
             custom.CreateTime = DateTime.Now;
             custom.IsDelete = false;
-            var classInfo=await _dictionaryServices.Query(a => a.Category == "Class" && a.Code == custom.Class);
+            var classInfo = await _dictionaryServices.Query(a => a.Category == "Class" && a.Code == custom.Class);
             custom.ClassName = classInfo.FirstOrDefault()?.Value;
             var id = await graduationStatisticsServices.Add(custom);
             data.success = id > 0;
@@ -141,35 +144,33 @@ namespace BlogCore.Controllers
             }
             return data;
         }
-       
-        [HttpPost]
-        public IActionResult Import(IFormFile files)
-        {
-            var stream = files.OpenReadStream();
-           
-            var data = OfficeHelper.ReadStreamToDataTable(stream);
-            var culum = data.Columns;
-            foreach (DataRow row in data.Rows)
-            {
-                object[] d=row.ItemArray;
-                var info = new GraduationStatistics
-                {
-                    Name = d[0]?.ToString(),
 
-                };
-            }
-           
-            try
+        [HttpPost]
+        public async Task<IActionResult> Import(IFormFile files)
+        {
+            //获取文件流
+            var stream = files.OpenReadStream();
+            //读取datatable
+            DataTable data = OfficeHelper.OfficeHelper<GraduationStatistics>.ReadStreamToDataTable(stream,_excelMap);
+            //把Excel转换为model
+            IList<GraduationStatistics> datalist=ImportExcelHelper<GraduationStatistics>.ImportExcel(data);
+            List<int> successList = new List<int>();
+            List<int> errorList = new List<int>();
+            //循环保存到数据库
+            foreach (GraduationStatistics d in datalist)
             {
-                
-                   return Content("");
+                var id =await graduationStatisticsServices.Add(d);
+                if (id > 0)
+                {
+                    successList.Add(id);
+                }
+                else
+                {
+                    errorList.Add(id);
+                }
                
-              
             }
-            catch (Exception ex)
-            {
-                return Content(ex.Message);
-            }
+            return Content("");
         }
     }
 }

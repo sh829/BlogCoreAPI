@@ -119,6 +119,21 @@
             修改人
             </summary>
         </member>
+        <member name="P:BlogCore.Model.Models.ExcelMapToModel.ModelName">
+            <summary>
+            对应的model名称  或者是表名  这里是codefirst 所以是model
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExcelMapToModel.ExcelColumn">
+            <summary>
+            excel列名
+            </summary>
+        </member>
+        <member name="P:BlogCore.Model.Models.ExcelMapToModel.ModelProperty">
+            <summary>
+            对应的model属性
+            </summary>
+        </member>
         <member name="P:BlogCore.Model.Models.ExtraOtherProject.BookInfoId">
             <summary>
             预定信息表ID

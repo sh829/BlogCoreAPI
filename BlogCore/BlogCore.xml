@@ -217,6 +217,14 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="M:BlogCore.Controllers.ExcelMapToModelController.Get(System.Int32,System.String)">
+            <summary>
+            获取参数字典
+            </summary>
+            <param name="page"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
         <member name="T:BlogCore.Controllers.ExtraOtherProjectController">
             <summary>
             预定表添加额外信息 额外布置 延时 套餐外加人
@@ -640,6 +648,24 @@
             
             </summary>
             <param name="next"></param>
+        </member>
+        <member name="M:BlogCore.OfficeHelper.OfficeHelper`1.ReadExcelToDataTable(System.String,System.String,System.Boolean)">
+            <summary>
+            read excel to datable
+            </summary>
+            <param name="fileName"></param>
+            <param name="sheetName"></param>
+            <param name="isFirstRowColumn"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BlogCore.OfficeHelper.OfficeHelper`1.ReadStreamToDataTable(System.IO.Stream,BlogCore.IServices.IExcelMapToModelServices,System.String,System.Boolean)">
+            <summary>
+            将文件流读取到DataTable数据表中
+            </summary>
+            <param name="fileStream">文件流</param>
+            <param name="sheetName">指定读取excel工作薄sheet的名称</param>
+            <param name="isFirstRowColumn">第一行是否是DataTable的列名：true=是，false=否</param>
+            <returns>DataTable数据表</returns>
         </member>
         <member name="T:Blog.Core.Controllers.ClaimsController">
             <summary>

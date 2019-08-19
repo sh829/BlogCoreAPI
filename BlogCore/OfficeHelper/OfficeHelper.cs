@@ -1,14 +1,21 @@
-﻿using NPOI.SS.UserModel;
+﻿using BlogCore.IServices;
+using NPOI.SS.UserModel;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Text;
 
-namespace BlogCore.Common.OfficeHelper
+namespace BlogCore.OfficeHelper
 {
-    public class OfficeHelper
+    public class OfficeHelper<TModel>
     {
+        //private  readonly IExcelMapToModelServices _excelMap;
+
+        //public OfficeHelper(IExcelMapToModelServices excelMap)
+        //{
+        //    _excelMap = excelMap;
+        //}
         /// <summary>
         /// read excel to datable
         /// </summary>
@@ -107,7 +114,7 @@ namespace BlogCore.Common.OfficeHelper
         /// <param name="sheetName">指定读取excel工作薄sheet的名称</param>
         /// <param name="isFirstRowColumn">第一行是否是DataTable的列名：true=是，false=否</param>
         /// <returns>DataTable数据表</returns>
-        public static DataTable ReadStreamToDataTable(Stream fileStream, string sheetName = null, bool isFirstRowColumn = true)
+        public static DataTable ReadStreamToDataTable(Stream fileStream, IExcelMapToModelServices _excelMap,string sheetName = null, bool isFirstRowColumn = true)
         {
             //定义要返回的datatable对象
             DataTable data = new DataTable();
@@ -148,6 +155,7 @@ namespace BlogCore.Common.OfficeHelper
                             if (cell != null && cell?.ToString() != "")
                             {
                                 string cellValue = cell.StringCellValue;
+                                cellValue = _excelMap.QueryByExcelName(cellValue, typeof(TModel).Name);
                                 if (cellValue != null)
                                 {
                                     DataColumn column = new DataColumn(cellValue);
